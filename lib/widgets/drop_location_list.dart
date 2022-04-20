@@ -33,9 +33,10 @@ class _DropLocationTextFieldState extends State<DropLocationTextField> {
     return TextField(
       controller: _nameController,
       onChanged: (v) => dropLocationList[widget.index] = v,
+      cursorColor: green,
       decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(10),
           hintText: 'Enter Drop Location',
+          hintStyle: TextStyle(fontSize: 20),
           border: const OutlineInputBorder(),
           focusedBorder:
               OutlineInputBorder(borderSide: BorderSide(color: green))),

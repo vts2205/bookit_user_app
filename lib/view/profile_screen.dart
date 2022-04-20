@@ -67,6 +67,32 @@ class ProfileScreen extends StatelessWidget {
                     borderSide: BorderSide(color: green, width: 2),
                     borderRadius: BorderRadius.circular(5))),
           ),
+          const SizedBox(height: 20),
+          Row(
+            children: const [
+              Text(
+                'Referral Code : ',
+                style: TextStyle(fontSize: 18),
+              ),
+              Text(
+                'ABCD1234',
+                style: TextStyle(fontSize: 18, color: Colors.black54),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Row(
+            children: const [
+              Text(
+                'Referred Users : ',
+                style: TextStyle(fontSize: 18),
+              ),
+              Text(
+                '3',
+                style: TextStyle(fontSize: 18, color: Colors.black54),
+              ),
+            ],
+          ),
           const SizedBox(height: 80),
           ElevatedButton(
               onPressed: () {
