@@ -1,6 +1,6 @@
 import 'package:bookit_user_app/constants/colors.dart';
 import 'package:bookit_user_app/controllers/onboarding_controller.dart';
-import 'package:bookit_user_app/view/login_screen.dart';
+import 'package:bookit_user_app/view/authentication/login_screen.dart';
 import 'package:bookit_user_app/view/terms_conditions_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

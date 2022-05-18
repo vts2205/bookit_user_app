@@ -40,6 +40,12 @@ dependencies:
   flutter_rating_bar: ^4.0.0
   google_maps_flutter: ^2.1.1
   badges: ^2.0.2
+  http: ^0.13.4
+  get_storage: ^2.0.3
+  sms_autofill: ^2.2.0
+  firebase_core: ^1.17.0
+  firebase_auth: ^3.3.18
+
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +78,7 @@ flutter:
   assets:
     - assets/images/
     - assets/logo/
+    - assets/video.mp4
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

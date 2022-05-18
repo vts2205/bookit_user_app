@@ -1,6 +1,6 @@
 import 'package:bookit_user_app/view/booking_history_screen.dart';
 import 'package:bookit_user_app/view/home_screen.dart';
-import 'package:bookit_user_app/view/login_screen.dart';
+import 'package:bookit_user_app/view/authentication/login_screen.dart';
 import 'package:bookit_user_app/view/notification_offer_screen.dart';
 import 'package:bookit_user_app/view/payment_method_screen.dart';
 import 'package:bookit_user_app/view/profile_screen.dart';
@@ -105,7 +105,7 @@ class DrawerWidget extends StatelessWidget {
                   title: 'Logout',
                   icon: Icons.logout,
                   onTap: () {
-                    Get.offAll(const LoginScreen());
+                    Get.offAll(LoginScreen());
                   },
                   color: Colors.black,
                   size: 20),

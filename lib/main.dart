@@ -1,12 +1,16 @@
 import 'package:bookit_user_app/constants/colors.dart';
-import 'package:bookit_user_app/view/onboarding_screen.dart';
-import 'package:flutter/foundation.dart';
+import 'package:bookit_user_app/view/splashscreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter/services.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -38,7 +42,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const OnboardingScreen(),
+      home: const SplashScreen(),
     );
   }
 }
