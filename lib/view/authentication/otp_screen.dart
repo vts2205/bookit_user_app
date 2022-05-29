@@ -75,11 +75,11 @@ class _VerifyOTPScreenState extends State<VerifyOTPScreen> with CodeAutoFill {
             const SizedBox(height: 30),
             PinFieldAutoFill(
               decoration: BoxLooseDecoration(
-                  gapSpace: 40,
+                  gapSpace: 20,
                   strokeWidth: 2,
                   strokeColorBuilder: FixedColorBuilder(blue)),
               currentCode: codeValue,
-              codeLength: 4,
+              codeLength: 6,
               onCodeChanged: (code) {
                 print("onCodeChanged $code");
                 setState(() {

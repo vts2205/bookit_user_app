@@ -18,41 +18,10 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> with CodeAutoFill {
-  String codeValue = "";
-
-  @override
-  void codeUpdated() {
-    print("Update code $code");
-    setState(() {
-      print("codeUpdated");
-    });
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    listenOtp();
-  }
-
-  void listenOtp() async {
-    await SmsAutoFill().unregisterListener();
-    listenForCode();
-    await SmsAutoFill().listenForCode;
-    print("OTP listen Called");
-  }
-
-  @override
-  void dispose() {
-    SmsAutoFill().unregisterListener();
-    print("unregisterListener");
-    super.dispose();
-  }
-
+class _LoginScreenState extends State<LoginScreen> {
   final box = GetStorage();
 
-  TextEditingController contact = TextEditingController();
+  //TextEditingController contact = TextEditingController();
   TextEditingController phonenumber = TextEditingController();
   AuthClass authClass = AuthClass();
 
@@ -93,21 +62,21 @@ class _LoginScreenState extends State<LoginScreen> with CodeAutoFill {
       padding: const EdgeInsets.all(15),
       child: Column(
         children: [
-          TextField(
-            controller: contact,
-            keyboardType: TextInputType.number,
-            cursorColor: green,
-            decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
-                  borderSide: BorderSide(color: green, width: 2),
-                ),
-                hintText: 'Enter Your Name'),
-          ),
-          const SizedBox(height: 10),
+          // TextField(
+          //   controller: contact,
+          //   keyboardType: TextInputType.number,
+          //   cursorColor: green,
+          //   decoration: InputDecoration(
+          //       enabledBorder: OutlineInputBorder(
+          //         borderRadius: BorderRadius.circular(5),
+          //       ),
+          //       focusedBorder: OutlineInputBorder(
+          //         borderRadius: BorderRadius.circular(5),
+          //         borderSide: BorderSide(color: green, width: 2),
+          //       ),
+          //       hintText: 'Enter Your Name'),
+          // ),
+          // const SizedBox(height: 10),
           TextField(
             controller: phonenumber,
             keyboardType: TextInputType.number,
@@ -120,7 +89,8 @@ class _LoginScreenState extends State<LoginScreen> with CodeAutoFill {
                   borderRadius: BorderRadius.circular(5),
                   borderSide: BorderSide(color: green, width: 2),
                 ),
-                hintText: 'Enter Your Phone Number'),
+                hintText: 'Enter Your Phone Number',
+                hintStyle: TextStyle(fontSize: 20)),
           ),
           const SizedBox(height: 10),
           const Divider(thickness: 2),
