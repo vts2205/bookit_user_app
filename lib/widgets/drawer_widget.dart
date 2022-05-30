@@ -53,7 +53,7 @@ class DrawerWidget extends StatelessWidget {
               ),
               const Divider(),
               const SizedBox(height: 30),
-              MenuItem(
+              MenuItems(
                   title: 'Book Your Ride',
                   icon: Icons.drive_eta,
                   onTap: () {
@@ -61,7 +61,7 @@ class DrawerWidget extends StatelessWidget {
                   },
                   color: Colors.black,
                   size: 20),
-              MenuItem(
+              MenuItems(
                   title: 'Booking History',
                   icon: Icons.history_toggle_off,
                   onTap: () {
@@ -69,7 +69,7 @@ class DrawerWidget extends StatelessWidget {
                   },
                   color: Colors.black,
                   size: 20),
-              MenuItem(
+              MenuItems(
                   title: 'Notifications & Offers',
                   icon: Icons.notification_important,
                   onTap: () {
@@ -77,7 +77,7 @@ class DrawerWidget extends StatelessWidget {
                   },
                   color: Colors.black,
                   size: 20),
-              MenuItem(
+              MenuItems(
                   title: 'Payment Method',
                   icon: Icons.payment,
                   onTap: () {
@@ -85,7 +85,7 @@ class DrawerWidget extends StatelessWidget {
                   },
                   color: Colors.black,
                   size: 20),
-              MenuItem(
+              MenuItems(
                   title: 'Transaction History',
                   icon: Icons.history,
                   onTap: () {
@@ -93,7 +93,7 @@ class DrawerWidget extends StatelessWidget {
                   },
                   color: Colors.black,
                   size: 20),
-              MenuItem(
+              MenuItems(
                   title: 'Terms and Conditions',
                   icon: Icons.description,
                   onTap: () {
@@ -101,7 +101,7 @@ class DrawerWidget extends StatelessWidget {
                   },
                   color: Colors.black,
                   size: 20),
-              MenuItem(
+              MenuItems(
                   title: 'Logout',
                   icon: Icons.logout,
                   onTap: () {
