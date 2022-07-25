@@ -1,4 +1,5 @@
 import 'package:bookit_user_app/constants/colors.dart';
+import 'package:bookit_user_app/view/home_screen.dart';
 import 'package:bookit_user_app/view/splashscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,14 +12,17 @@ void main() async {
   await GetStorage.init();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+
+  final box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
+    var userId = box.read('userId');
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: blue));
     WidgetsFlutterBinding.ensureInitialized();
@@ -26,23 +30,26 @@ class MyApp extends StatelessWidget {
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      builder: (context, widget) => ResponsiveWrapper.builder(
-        BouncingScrollWrapper.builder(context, widget!),
-        maxWidth: 1200,
-        minWidth: 480,
-        defaultScale: true,
-        breakpoints: const [
-          ResponsiveBreakpoint.resize(480, name: MOBILE),
-          ResponsiveBreakpoint.autoScale(800, name: TABLET),
-          ResponsiveBreakpoint.resize(1000, name: DESKTOP),
-        ],
-      ),
-      title: 'Bookit',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const SplashScreen(),
-    );
+        debugShowCheckedModeBanner: false,
+        builder: (context, widget) => ResponsiveWrapper.builder(
+              BouncingScrollWrapper.builder(context, widget!),
+              maxWidth: 1200,
+              minWidth: 480,
+              defaultScale: true,
+              breakpoints: const [
+                ResponsiveBreakpoint.resize(480, name: MOBILE),
+                ResponsiveBreakpoint.autoScale(800, name: TABLET),
+                ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+              ],
+            ),
+        title: 'Bookit',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home:
+            // userId == null ?
+            SplashScreen()
+        // : HomeScreen(),
+        );
   }
 }

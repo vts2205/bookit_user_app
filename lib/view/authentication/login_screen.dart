@@ -1,6 +1,6 @@
 import 'dart:async';
-
 import 'package:bookit_user_app/constants/colors.dart';
+import 'package:bookit_user_app/services/apiservice.dart';
 import 'package:bookit_user_app/services/authservice.dart';
 import 'package:bookit_user_app/view/authentication/otp_screen.dart';
 import 'package:bookit_user_app/view/home_screen.dart';
@@ -21,9 +21,14 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final box = GetStorage();
 
-  //TextEditingController contact = TextEditingController();
+  TextEditingController contact = TextEditingController();
   TextEditingController phonenumber = TextEditingController();
   AuthClass authClass = AuthClass();
+
+  // final name = TextEditingController();
+  // final contact = TextEditingController();
+  // final email = TextEditingController();
+  // final password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -62,21 +67,22 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: const EdgeInsets.all(15),
       child: Column(
         children: [
-          // TextField(
-          //   controller: contact,
-          //   keyboardType: TextInputType.number,
-          //   cursorColor: green,
-          //   decoration: InputDecoration(
-          //       enabledBorder: OutlineInputBorder(
-          //         borderRadius: BorderRadius.circular(5),
-          //       ),
-          //       focusedBorder: OutlineInputBorder(
-          //         borderRadius: BorderRadius.circular(5),
-          //         borderSide: BorderSide(color: green, width: 2),
-          //       ),
-          //       hintText: 'Enter Your Name'),
-          // ),
-          // const SizedBox(height: 10),
+          TextField(
+            controller: contact,
+            keyboardType: TextInputType.number,
+            cursorColor: green,
+            decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(5),
+                  borderSide: BorderSide(color: green, width: 2),
+                ),
+                hintText: 'Enter Your Name',
+                hintStyle: TextStyle(fontSize: 20)),
+          ),
+          const SizedBox(height: 10),
           TextField(
             controller: phonenumber,
             keyboardType: TextInputType.number,
@@ -149,7 +155,8 @@ class _LoginScreenState extends State<LoginScreen> {
           ElevatedButton(
               style: ElevatedButton.styleFrom(primary: blue),
               onPressed: () {
-                genertaeotp(phonenumber.text);
+                Get.to(VerifyOTPScreen());
+                // genertaeotp(phonenumber.text);
 
                 //signup();
                 // Get.to(HomeScreen());
@@ -237,4 +244,96 @@ class _LoginScreenState extends State<LoginScreen> {
       },
     );
   }
+
+  // buildLogin(BuildContext context) {
+  //   return Padding(
+  //     padding: const EdgeInsets.all(10),
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.stretch,
+  //       children: [
+  //         TextFormField(
+  //           controller: name,
+  //           cursorColor: green,
+  //           decoration: InputDecoration(
+  //               enabledBorder: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.circular(5),
+  //               ),
+  //               focusedBorder: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.circular(5),
+  //                 borderSide: BorderSide(color: green, width: 2),
+  //               ),
+  //               hintText: 'Enter Your Name'),
+  //         ),
+  //         const SizedBox(height: 10),
+  //         TextFormField(
+  //           controller: contact,
+  //           keyboardType: TextInputType.number,
+  //           cursorColor: green,
+  //           decoration: InputDecoration(
+  //               enabledBorder: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.circular(5),
+  //               ),
+  //               focusedBorder: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.circular(5),
+  //                 borderSide: BorderSide(color: green, width: 2),
+  //               ),
+  //               hintText: 'Enter Phone Number'),
+  //         ),
+  //         const SizedBox(height: 10),
+  //         TextFormField(
+  //           controller: email,
+  //           keyboardType: TextInputType.emailAddress,
+  //           cursorColor: green,
+  //           decoration: InputDecoration(
+  //               enabledBorder: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.circular(5),
+  //               ),
+  //               focusedBorder: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.circular(5),
+  //                 borderSide: BorderSide(color: green, width: 2),
+  //               ),
+  //               hintText: 'Enter Email address'),
+  //         ),
+  //         const SizedBox(height: 10),
+  //         TextFormField(
+  //           controller: password,
+  //           keyboardType: TextInputType.visiblePassword,
+  //           cursorColor: green,
+  //           decoration: InputDecoration(
+  //               enabledBorder: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.circular(5),
+  //               ),
+  //               focusedBorder: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.circular(5),
+  //                 borderSide: BorderSide(color: green, width: 2),
+  //               ),
+  //               hintText: 'Enter Password'),
+  //         ),
+  //         const SizedBox(height: 10),
+  //         ElevatedButton(
+  //             style: ElevatedButton.styleFrom(
+  //                 primary: green, padding: EdgeInsets.symmetric(vertical: 20)),
+  //             // onPressed: () async {
+  //             //   var data = await APIService().createLogin(
+  //             //       name.text, contact.text, email.text, password.text);
+  //             //   if (data['statusCode'] == 1) {
+  //             //     print(data);
+  //             //     box.write('userId', data['body']['userId']);
+  //             //     Get.off(HomeScreen());
+  //             //     print('=======Success=======');
+  //             //   } else {
+  //             //     print('=======Failed=======');
+  //             //   }
+  //             // },
+  //             onPressed: () {
+  //               Get.off(HomeScreen());
+  //             },
+  //             child: Text(
+  //               'Login',
+  //               style: TextStyle(fontSize: 25),
+  //             ))
+  //       ],
+  //     ),
+  //   );
+  // }
 }
